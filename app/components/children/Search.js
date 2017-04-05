@@ -9,6 +9,16 @@ var Results = require("./Results");
 //this really only renders the grandkids of the search and the results
 var Search = React.createClass({
 
+  getInitialState: function() {
+    
+    return { results: [] };
+  },
+
+  setTerm: function(term) {
+    
+    this.setState({ searchTerm: term });
+  },
+
   // Here we render the component
   render: function() {
 
@@ -17,9 +27,9 @@ var Search = React.createClass({
 
     <div className="container">
 
-      <Query />        
+      <Query setTerm={this.setTerm} />        
 
-      <Results />        
+      <Results results={this.state.results}/>        
 
     </div>
     

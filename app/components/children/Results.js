@@ -21,7 +21,22 @@ var Results = React.createClass({
         </div>
 
       
-        <div className="panel-body" id="wellSection">
+        <div className="panel-body">
+
+            {this.props.results.map(function(article, i) {
+            return (
+              <div key={i} className="panel panel-default">
+                <div className="panel-heading">{article.headline.main}</div>
+                <div className="panel-body">
+                  <div>{article.pub_date}</div>
+                  <a href={article.web_url}>Article Link</a>
+   
+                </div>
+              </div>
+
+            );
+          })}
+
         </div>
       </div>
     </div>

@@ -3,10 +3,14 @@ var React = require("react");
 
 //Include the subcomponents
 var Search = require("./children/Search");
-
+var Saved = require("./children/Saved");
 
 var Main = React.createClass({
 
+  getInitialState: function() {
+    
+    return { saved: [] };
+  },
 
 
   // Here we render the component
@@ -27,6 +31,12 @@ var Main = React.createClass({
           <div className="container">
 
             <Search />
+
+          
+
+            <Saved saved={this.state.saved} />
+
+        
 
           </div>
         </div>
